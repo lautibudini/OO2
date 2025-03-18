@@ -13,5 +13,5 @@
 - 💡 Resoluciones :
    > [Ejercicio 1]()
    >
-   > [Ejercicio 2]()
+   > [Ejercicio 2](/Ejercicio%202)
    > 
