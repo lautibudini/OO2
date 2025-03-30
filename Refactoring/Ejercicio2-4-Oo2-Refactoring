@@ -1,0 +1,80 @@
+
+// Codigo original : 
+
+public class Producto {
+    private String nombre;
+    private double precio;
+    
+    public double getPrecio() {
+        return this.precio;
+    }
+}
+
+public class ItemCarrito {
+    private Producto producto;
+    private int cantidad;
+        
+    public Producto getProducto() {
+        return this.producto;
+    }
+    
+    public int getCantidad() {
+        return this.cantidad;
+    }
+
+}
+
+public class Carrito {
+    private List<ItemCarrito> items;
+    
+    public double total() {
+        return this.items.stream()
+        .mapToDouble(item -> 
+        item.getProducto().getPrecio() * item.getCantidad())
+        .sum();
+    }
+}
+
+
+/*
+   1- Feature Envy (Envidia de funcionalidad): Carrito se esta haciendo cargo de todo, funcionalidades que no son suyas
+   rompiendo el encapsulamiento.
+   --> Solucion : Move Method.  
+
+   2- Devolver el producto en ItemCarrito? (Consultar).
+
+*/
+
+
+// Codigo nuevo : 
+
+public class Producto {
+    private String nombre;
+    private double precio;
+    
+    public double getPrecio() {
+        return this.precio;
+    }
+}
+
+public class ItemCarrito {
+    private Producto producto;
+    private int cantidad;
+        
+    public int getCantidad() {
+        return this.cantidad;
+    }
+
+    public double getTotal(){
+        return this.producto.getPrecio() * this.cantidad;
+    }
+
+}
+
+public class Carrito {
+    private List<ItemCarrito> items;
+    
+    public double precioTotal() {
+        return this.items.stream().mapToDouble(item ->  item.getTotal).sum();
+    }
+}
