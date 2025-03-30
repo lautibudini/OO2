@@ -1,0 +1,65 @@
+
+
+// Codigo original : 
+
+public class Supermercado {
+   public void notificarPedido(long nroPedido, Cliente cliente) {
+     String notificacion = MessageFormat.format(“Estimado cliente, se le informa que hemos recibido su pedido con número 
+     {0}, el cual será enviado a la dirección {1}”, new Object[] { nroPedido, cliente.getDireccionFormateada() });
+
+     // lo imprimimos en pantalla, podría ser un mail, SMS, etc..
+    System.out.println(notificacion);
+  }
+}
+
+public class Cliente {
+   public String getDireccionFormateada() {
+	return 
+		this.direccion.getLocalidad() + “, ” +
+		this.direccion.getCalle() + “, ” +
+		this.direccion.getNumero() + “, ” +
+		this.direccion.getDepartamento()
+      ;
+}
+
+
+/*
+    1- Inappropriate Intimacy :  Debemos dejar las variables privadas en direccion y que la clase devuelva un toString 
+       para la dirección completa. 
+    2- Featured Envy : La clase cliente realiza conmportamiento que no debe realizar, deberia encargarse 
+       la clase dirección. Ya que accede a todas las variables de la clase dirección para armarla. 
+*/
+
+
+// Codigo nuevo : 
+
+public class Supermercado {
+   public void notificarPedido(long nroPedido, Cliente cliente) {
+     String notificacion = MessageFormat.format(“Estimado cliente, se le informa que hemos recibido su pedido con número {0}, 
+     el cual será enviado a la dirección {1}”, new Object[] { this.nroPedido, this.cliente.getDireccionFormateada() });
+
+     // lo imprimimos en pantalla, podría ser un mail, SMS, etc..
+    System.out.println(notificacion);
+  }
+}
+
+public class Cliente {
+   
+   public String getDireccionFormateada() {
+	return this.direccion.toString();
+}
+
+public class Direccion {
+    private String localidad;
+    private String calle;
+    private String numero;
+    private String departamento;
+
+    // ....
+
+    public String toString(){
+        return "Localidad : " + this.localidad + " ,calle : " + this.calle, + " ,numero :" + this.numero + " ,departamento"
+        this.departamento;
+    }
+
+}
