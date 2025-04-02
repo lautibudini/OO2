@@ -24,7 +24,7 @@ public class Cliente {
 
 
 /*
-    1- Inappropriate Intimacy :  Debemos dejar las variables privadas en direccion y que la clase devuelva un toString 
+    1- Encapsulate Field:  Debemos dejar las variables privadas en direccion y que la clase devuelva un toString 
        para la dirección completa. 
     2- Featured Envy : La clase cliente realiza conmportamiento que no debe realizar, deberia encargarse 
        la clase dirección. Ya que accede a todas las variables de la clase dirección para armarla. 
