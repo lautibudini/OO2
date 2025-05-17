@@ -7,8 +7,8 @@ public class CreacionDecorador extends FileDecorator{
 	}
 
 	@Override
-	public String prettyPrint() {
-		return this.getFile().prettyPrint() + " - " + this.getFile().getFechaCreacion();
+	public String getDecoradoAdicional() {
+		return " - " + this.getFechaCreacion();
 	}
 	
 	

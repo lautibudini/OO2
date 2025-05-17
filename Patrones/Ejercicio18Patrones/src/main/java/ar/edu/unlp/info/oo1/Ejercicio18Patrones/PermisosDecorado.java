@@ -6,12 +6,11 @@ public class PermisosDecorado extends FileDecorator {
 	
 	public PermisosDecorado(FileOO2 file) {
 		super(file);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String prettyPrint() {
-		return this.getFile().prettyPrint() + " - " + this.getFile().getPermisos();
+	public String getDecoradoAdicional() {
+		return " - " + this.getPermisos();
 	}
 
 }

@@ -42,7 +42,6 @@ public class FileOO2 implements IFile {
 
 	@Override
 	public String prettyPrint() {
-		// TODO Auto-generated method stub
 		return this.nombre;
 	}
 	
