@@ -14,6 +14,6 @@ public abstract class Builder {
 	
 	public abstract void setArma();
 	public abstract void setArmadura();
-	public abstract void setNombre();
+	public abstract void setNombre(String nombre);
 	public abstract void setHabilidad();
 }
